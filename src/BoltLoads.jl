@@ -150,7 +150,7 @@ function plot_bolt_loads(points; Fc=[0,0,0]N, Mc = [0,0,0]N*m, A=1mm^2, udf_pivo
     xyrange = maximum([xrange, yrange])
 
     # determine xlims and ylims for the plot
-    scale = 0.25
+    scale = 0.30
     xs = minimum(x_plot) - scale * xrange
     xf = maximum(x_plot) + scale * xrange
     ys = minimum(y_plot) - scale * yrange
@@ -195,7 +195,7 @@ function plot_bolt_loads(points; Fc=[0,0,0]N, Mc = [0,0,0]N*m, A=1mm^2, udf_pivo
     h2y = arrow_tip_y + head2_y
 
     
-    p = plot()
+    p = plot();
     # Plot Paxial data on scatter plot
     scatter!(x_plot, y_plot,
             hover = hovertext,
@@ -211,30 +211,30 @@ function plot_bolt_loads(points; Fc=[0,0,0]N, Mc = [0,0,0]N*m, A=1mm^2, udf_pivo
             markeralpha = 1,
             colorbar=true,
             colorbar_title = "Paxial",
-            legend = false)
+            legend = false);
      
     # Plot centroid on same plot
     scatter!([xc_plot], [yc_plot], markercolor = :grey, markersize = 8, markerstrokewidth = 1, 
-                markeralpha = 0.7, hover = "Centroid<br>xc: $(xc_hover)<br>yc: $(yc_hover)")
+                markeralpha = 0.7, hover = "Centroid<br>xc: $(xc_hover)<br>yc: $(yc_hover)");
     vline!([ustrip(xc_plot)],
-            color = :grey)
+            color = :grey);
     hline!([ustrip(yc_plot)],
-            color = :grey)
+            color = :grey);
 
     # plot Vxy
     for (xs, xf, ys, yf, h1x, h1y, h2x, h2y) in zip(x_plot, arrow_tip_x, y_plot, arrow_tip_y,
                                                     h1x, h1y, h2x, h2y)
         # plot body of arrow
-        plot!([xs, xf], [ys, yf], linecolor = :pink, linewidth = 1)
+        plot!([xs, xf], [ys, yf], linecolor = :pink, linewidth = 1);
         # plot head1 of arrow
-        plot!([xf, h1x], [yf, h1y], linecolor = :pink, linewidth = 1)
+        plot!([xf, h1x], [yf, h1y], linecolor = :pink, linewidth = 1);
         #plot head2 of arrow
-        plot!([xf, h2x], [yf, h2y], linecolor = :pink, linewidth = 1)
+        plot!([xf, h2x], [yf, h2y], linecolor = :pink, linewidth = 1);
     end
 
 
-
-    display(p)
+    # display plot "p"
+    p
 
 
 end
