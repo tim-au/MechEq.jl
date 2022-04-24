@@ -1,6 +1,6 @@
 name = "MechEq"
 uuid = "eaab1d0a-c535-4993-bcc2-e478e0840793"
-authors = ["tim-au <99239974+tim-au@users.noreply.github.com> and contributors"]
+authors = ["Timothy Teske"]
 version = "0.1.0"
 
 [deps]
